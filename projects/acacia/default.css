@@ -1,0 +1,152 @@
+/* DOCUMENT */
+body {
+  border: 1em;
+  margin: 1em;
+  padding: 1em;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-family: helvetica, Arial, Verdana, Sans-Serif;
+}
+   
+/* TEXT */
+h1,h2,h3,h4,h5,h6 {
+  color: #000000;
+}
+h1 {
+  font-size: 120%;
+}
+h2 {
+  font-size: 110%;
+}
+h3 {
+  font-size: 100%;
+}
+
+p {
+  line-height:1.3em;
+  margin-bottom:1em;
+}
+a:link {
+  color: #1020D0;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #7A33AB;
+  /*background-color:#000000;*/
+  background-color: transparent;
+  text-decoration: none; 
+}
+a:hover {
+  color: #1020D0;
+  background-color:  none; /*#FFFFA1;*/
+  /* text-decoration: underline; */
+  text-decoration: underline;
+}
+address {
+  margin-top: 0.1em;
+  padding-top: 0.1em;
+  border-top: thin dotted;
+}
+
+.center {
+	text-align: center;
+	font-size: 12pt;
+}
+
+.italic { 
+ 	font-style: italic; 
+	font-size: 12pt;
+}
+
+.bold {
+    font-weight: bold;
+	font-size: 12pt;
+}
+
+.quote {
+	margin-left: 40px;
+	margin-right: 40px;
+	font-size: 12pt;
+}
+
+td.side {
+	color: #3366cc;
+	background: #f2f2f9;
+	border-color: #3366cc;
+	border-style: solid;
+	border-width: thin;
+	vertical-align: top;
+	width: 150px;
+	font-size: 12pt;
+}
+
+div.copyright {
+	font-size: 11pt; 
+	border: 2px solid #3366cc; 
+	padding: 4px;
+	background: #f2f2f9;
+	border-style: solid;
+	border-width: thin;
+}
+
+div.asciitext {
+	font-size: 8pt; 
+	padding: 4px;
+}
+
+
+/* If you wanted to replace td.side with CSS, here's one idea */
+div.linkbar {
+    float:right;
+    display: table;
+    color: #3366cc;
+    background-color: #f2f2f9;
+    width: 150px;
+    margin-bottom: 100%;
+	border-style: solid;
+	border-width: thin;
+	font-size: 10pt;
+    padding: 0 0.5em;
+	position: static;
+}
+
+/* ::LISTS */
+/*
+   ul,ol {
+       margin:1em 0 1em 10px; padding-left:8px;
+   }
+   li {
+       line-height:1.3em;
+       margin-bottom:1em;
+       list-style-type:none;
+   }
+   li:before{
+       content: "~ ";
+       font-weight:bold;
+   }
+*/
+
+
+pre{ 
+   color: #000000;
+   background-color: #D3D0DB;
+   white-space: pre;
+   padding: 7px;
+   margin-top: 1.0em;
+   margin-bottom: 1.0em;
+   margin-left: 1.0em;
+   margin-right: 1.0em;
+   line-height: 120%;
+   border:1pt dashed #000000;
+
+}
+
+span.li {
+/*   color: #ffffff;*/
+   font-style: italic; 
+   font-weight: bold;
+   /*display: block;*/
+}
+
+
