@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": "R J Pezzuto Damaceno / R Mugnaini"
+  },
+  "text": {
+    "more": "Grupos de artigos da Rev Sau Pub - 2016\n\nOs artigos possuem uma relação caso haja pelo menos 1 descritor em comum entre eles.\nEsse parâmetro pode ser ajustado para um valor maior.\nTambem é possivel usar o parâmetro Jaccard, apontando um valor mínimo para considerar a relação como válida.\n",
+    "intro": "Grupos de artigos da Rev Sau Pub - 2016\n\nOs artigos possuem uma relação caso haja pelo menos 1 descritor em comum entre eles.\nEsse parâmetro pode ser ajustado para um valor maior.\nTambem é possivel usar o parâmetro Jaccard, apontando um valor mínimo para considerar a relação como válida.",
+    "title": "Grupos de artigos da Rev Sau Pub - 2016"
+  },
+  "legend": {
+    "edgeLabel": "Relação entre dois artigos",
+    "colorLabel": "Grupo de artigos semelhantes",
+    "nodeLabel": "Artigo"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "color",
+    "hoverBehavior": "dim"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": false,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "curve",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 10,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 14
+    },
+    "graphProperties": {
+      "maxEdgeSize": 0.5,
+      "minEdgeSize": 0.2,
+      "minNodeSize": 1,
+      "maxNodeSize": 7
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}
