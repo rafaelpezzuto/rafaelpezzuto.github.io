@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideSeeing Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        function createCityTable(content, elementID) {
+            var htmlTable = '<table class="table is-bordered"><thead><tr><th>Item</th><th>Frequency</th></tr></thead><tbody>';
+
+            for (var chave in content["Frequency"]) {
+                htmlTable += '<tr>';
+                htmlTable += '<td>' + chave + '</td>';
+                htmlTable += '<td>' + content["Frequency"][chave] + '</td>';
+                htmlTable += '</tr>';
+            }
+    
+            htmlTable += '</tr></thead><tbody>';
+    
+            for (var i = 0; i < content.length; i++) {
+                htmlTable += '<tr>';
+                for (var chave in content[i]) {
+                    htmlTable += '<td>' + content[i][chave] + '</td>';
+                }
+                htmlTable += '</tr>';
+            }
+    
+            htmlTable += '</tbody></table>';
+    
+            $(elementID).html(htmlTable);
+        }
+
+        function getAndShowData(url, elementID){
+                $(document).ready(function() {
+                jsonData = jQuery.getJSON(url).done(function(data){
+                    createCityTable(data, elementID);
+                })
+            });
+        }
+
+        function getAndShowMap(url, elementID){
+                $(document).ready(function() {
+                jQuery.get(url).done(function(data){
+                    var iFrame = $(elementID);
+                    $(iFrame).append(iFrame);
+
+                    var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+                    iFrameDoc.write(data);
+                    iFrameDoc.close();
+                })
+            });
+        }
+
+        getAndShowData("https://storage.googleapis.com/sideseeing/cities.json", "#cities-content");
+
+        getAndShowData("https://storage.googleapis.com/sideseeing/tags-frequency.json", "#tags-content");
+
+        getAndShowMap("https://storage.googleapis.com/sideseeing/map.html", "#map-content")
+    </script>
+</head>
+
+<body class="is-family-code" style="height: 100vh;">
+    <nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid lightgrey;">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <strong>SideSeeing Project</strong>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="index.html">Home</a>
+            <a class="navbar-item" href="">Dataset</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <header class="content">
+                <h1>Dataset Overview</h1>
+            </header>
+
+            <article class="message is-danger">
+                <div class="message-body">
+                    This section is under construction. Its last update was on February 19th of this year.
+                </div>
+            </article>
+
+            <div class="tabs is-toggle">
+                <ul>
+                  <li class="is-active"><a>Data coverage</a></li>
+                  <li><a>Sidewalk problems</a></li>
+                  <li><a>Surface types</a></li>
+                </ul>
+            </div>
+
+            <div id="data-coverage">
+                <div class="tile is-ancestor">
+                    <div class="tile is-vertical is-parent">
+                        <div class="tile is-child">
+                            <h3 class="subtitle">Cities</h3>
+                            <div id="cities-content"></div>
+                        </div>
+                        
+                        <div class="tile is-child">
+                            <h3 class="subtitle">Tags</h3>
+                            <div id="tags-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="tile is-parent">
+                        <div class="tile is-child">
+                            <h3 class="subtitle">Geolocation</h3>
+                            <iframe width="800px" height="800px" id="map-content"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sidewalk-problems">
+            </div>
+    
+            <div id="surface-types">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 50px; border-top: 1px solid lightgrey;">
+        <div class="content has-text-centered">
+            <p>
+                SideSeeing Project - 2024<br/>
+                University of São Paulo
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
