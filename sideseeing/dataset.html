@@ -20,105 +20,106 @@
 
 </head>
 
-<body class="is-family-code is-fullheight-100vh">
-    <nav class="navbar is-light is-spaced" style="border-bottom: 1px solid lightgray;" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="">
-            <strong>SideSeeing Project</strong>
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarSP">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarSP" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="index.html">
-              Home
-            </a>
-
-            <a class="navbar-item" href="app.html">
-                App
-            </a>
-      
+<body class="is-family-code">
+    <div class="wrapper">
+        <nav class="navbar is-light is-spaced" style="border-bottom: 1px solid lightgray;" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
             <a class="navbar-item" href="">
-              Dataset
+                <strong>SideSeeing Project</strong>
             </a>
-          </div>
-        </div>
-    </nav>
-
-    <section class="section is-fullheight-100vh">
-        <div class="container">
-            <header class="subtitle">Dataset Overview</header>
-
-            <article class="message is-danger">
-                <div class="message-body">
-                    This section is under construction. The last update was on February 20th.
-                </div>
-            </article>
-
-            <div class="tabs is-toggle">
-                <ul>
-                    <li class="is-active" data-tab="coverage"><a>Data coverage</a></li>
-                    <li data-tab="problems"><a>Sidewalk problems</a></li>
-                    <li data-tab="surfaces"><a>Surface types</a></li>
-                </ul>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarSP">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
             </div>
+        
+            <div id="navbarSP" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html">
+                Home
+                </a>
 
-            <div class="content">
-                <div class="is-active" data-tab-content id="coverage">
-                    <div class="columns">
-                        <div class="column">
-                            <div class="box is-overflow-x-auto">
-                                <h3 class="subtitle">Cities</h3>
-                                <div id="cities-content">
-                                    <canvas id="chartCitiesFrequency"></canvas>
+                <a class="navbar-item" href="app.html">
+                    App
+                </a>
+        
+                <a class="navbar-item" href="">
+                Dataset
+                </a>
+            </div>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container">
+                <header class="subtitle">Dataset Overview</header>
+
+                <article class="message is-danger">
+                    <div class="message-body">
+                        This section is under construction. The last update was on February 20th.
+                    </div>
+                </article>
+
+                <div class="tabs is-toggle">
+                    <ul>
+                        <li class="is-active" data-tab="coverage"><a>Data coverage</a></li>
+                        <li data-tab="problems"><a>Sidewalk problems</a></li>
+                        <li data-tab="surfaces"><a>Surface types</a></li>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <div class="is-active" data-tab-content id="coverage">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box is-overflow-x-auto">
+                                    <h3 class="subtitle">Cities</h3>
+                                    <div id="cities-content">
+                                        <canvas id="chartCitiesFrequency"></canvas>
+                                    </div>
+                                </div>
+
+                                <div class="box is-overflow-x-auto">
+                                    <h3 class="subtitle">Tags</h3>
+                                    <div id="tags-content"></div>
                                 </div>
                             </div>
 
-                            <div class="box is-overflow-x-auto">
-                                <h3 class="subtitle">Tags</h3>
-                                <div id="tags-content"></div>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <div class="box is-overflow-x-auto">
-                                <h3 class="subtitle">Geolocation</h3>
-                                <iframe style="border: 1px solid gray;" width="100%" height="800px" id="map-content"></iframe>
-                            </div>
-                            
-                            <div class="box is-overflow-x-auto">
-                                <h3 class="subtitle">Categories</h3>
-                                <div id="categories-content">
-                                    <canvas id="chartCategoriesFrequency"></canvas>
+                            <div class="column">
+                                <div class="box is-overflow-x-auto">
+                                    <h3 class="subtitle">Geolocation</h3>
+                                    <iframe style="border: 1px solid gray;" width="100%" height="800px" id="map-content"></iframe>
+                                </div>
+                                
+                                <div class="box is-overflow-x-auto">
+                                    <h3 class="subtitle">Categories</h3>
+                                    <div id="categories-content">
+                                        <canvas id="chartCategoriesFrequency"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div data-tab-content id="problems">
-                </div>
-        
-                <div data-tab-content id="surfaces">
+                    <div data-tab-content id="problems">
+                    </div>
+            
+                    <div data-tab-content id="surfaces">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <footer class="footer" style="margin-top: 50px; border-top: 1px solid lightgrey;">
+    <footer class="footer" style="margin-top: 20px; border-top: 1px solid lightgrey;">
         <div class="content has-text-centered">
             <p>
-                SideSeeing Project - 2024<br/>
+                <strong>SideSeeing Project</strong> by Damaceno, R. J. P. - 2024<br/>
                 University of São Paulo
             </p>
         </div>
     </footer>
-
 </body>
 </html>
