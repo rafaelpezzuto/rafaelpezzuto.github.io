@@ -4,61 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideSeeing Project</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/utils.js"></script>
+    
     <script>
-        function createCityTable(content, elementID) {
-            var htmlTable = '<table class="table is-bordered"><thead><tr><th>Item</th><th>Frequency</th></tr></thead><tbody>';
-
-            for (var chave in content["Frequency"]) {
-                htmlTable += '<tr>';
-                htmlTable += '<td>' + chave + '</td>';
-                htmlTable += '<td>' + content["Frequency"][chave] + '</td>';
-                htmlTable += '</tr>';
-            }
-    
-            htmlTable += '</tr></thead><tbody>';
-    
-            for (var i = 0; i < content.length; i++) {
-                htmlTable += '<tr>';
-                for (var chave in content[i]) {
-                    htmlTable += '<td>' + content[i][chave] + '</td>';
-                }
-                htmlTable += '</tr>';
-            }
-    
-            htmlTable += '</tbody></table>';
-    
-            $(elementID).html(htmlTable);
-        }
-
-        function getAndShowData(url, elementID){
-                $(document).ready(function() {
-                jsonData = jQuery.getJSON(url).done(function(data){
-                    createCityTable(data, elementID);
-                })
-            });
-        }
-
-        function getAndShowMap(url, elementID){
-                $(document).ready(function() {
-                jQuery.get(url).done(function(data){
-                    var iFrame = $(elementID);
-                    var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
-                    iFrameDoc.write(data);
-                    iFrameDoc.close();
-                })
-            });
-        }
-
-        getAndShowData("https://storage.googleapis.com/sideseeing/cities.json", "#cities-content");
-
-        getAndShowData("https://storage.googleapis.com/sideseeing/tags-frequency.json", "#tags-content");
-
-        getAndShowMap("https://storage.googleapis.com/sideseeing/map.html", "#map-content")
+        mapPlaces("https://storage.googleapis.com/sideseeing/map.html", "#map-content");
+        tableAndChartTagsCategories("https://storage.googleapis.com/sideseeing/tags-frequency.json", "#tags-content", "#categories-content");
+        chartCitiesFrequency("https://storage.googleapis.com/sideseeing/cities.json");
     </script>
+
 </head>
 
 <body class="is-family-code is-fullheight-100vh">
@@ -80,6 +39,10 @@
             <a class="navbar-item" href="index.html">
               Home
             </a>
+
+            <a class="navbar-item" href="app.html">
+                App
+            </a>
       
             <a class="navbar-item" href="">
               Dataset
@@ -88,53 +51,66 @@
         </div>
     </nav>
 
-    <section class="section">
+    <section class="section is-fullheight-100vh">
         <div class="container">
-            <header class="content">
-                <h1>Dataset Overview</h1>
-            </header>
-
-            <article class="message is-danger">
-                <div class="message-body">
-                    This section is under construction. Its last update was on February 19th of this year.
-                </div>
-            </article>
+            <header class="subtitle">Dataset Overview</header>
 
             <div class="tabs is-toggle">
                 <ul>
-                  <li class="is-active"><a>Data coverage</a></li>
-                  <li><a>Sidewalk problems</a></li>
-                  <li><a>Surface types</a></li>
+                    <li class="is-active" data-tab="coverage"><a>Data coverage</a></li>
+                    <li data-tab="problems"><a>Sidewalk problems</a></li>
+                    <li data-tab="surfaces"><a>Surface types</a></li>
                 </ul>
             </div>
 
-            <div id="data-coverage">
-                <div class="columns">
-                    <div class="column">
-                        <div class="box is-overflow-x-auto">
-                            <h3 class="subtitle">Cities</h3>
-                            <div id="cities-content"></div>
+            <div class="content">
+                <div class="is-active" data-tab-content id="coverage">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="box is-overflow-x-auto">
+                                <h3 class="subtitle">Cities</h3>
+                                <div id="cities-content">
+                                    <canvas id="chartCitiesFrequency"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="box is-overflow-x-auto">
+                                <h3 class="subtitle">Tags</h3>
+                                <div id="tags-content"></div>
+                            </div>
                         </div>
 
-                        <div class="box is-overflow-x-auto">
-                            <h3 class="subtitle">Tags</h3>
-                            <div id="tags-content"></div>
-                        </div>
-                    </div>
-
-                    <div class="column">
-                        <div class="box is-overflow-x-auto">
-                            <h3 class="subtitle">Geolocation</h3>
-                            <iframe style="border: 1px solid gray;" width="100%" height="800px" id="map-content"></iframe>
+                        <div class="column">
+                            <div class="box is-overflow-x-auto">
+                                <h3 class="subtitle">Geolocation</h3>
+                                <iframe style="border: 1px solid gray;" width="100%" height="800px" id="map-content"></iframe>
+                            </div>
+                            
+                            <div class="box is-overflow-x-auto">
+                                <h3 class="subtitle">Categories</h3>
+                                <div id="categories-content">
+                                    <canvas id="chartCategoriesFrequency"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="sidewalk-problems">
-            </div>
-    
-            <div id="surface-types">
+                <div data-tab-content id="problems">
+                    <article class="message is-danger">
+                        <div class="message-body">
+                            This section is under construction. The last update was on February 20th.
+                        </div>
+                    </article>
+                </div>
+        
+                <div data-tab-content id="surfaces">
+                    <article class="message is-danger">
+                        <div class="message-body">
+                            This section is under construction. The last update was on February 20th.
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
