@@ -1,0 +1,18 @@
+.is-fullheight-100vh{
+    height:100vh;
+  }
+  
+  header{
+      background-color: #11aa11;
+      color:#efefef;
+  }
+  
+  div{
+      background-color: #dd3333;
+      color:#efefef;
+  }
+  
+  footer{
+      background-color: #3333dd;
+      color:#efefef;
+  }
