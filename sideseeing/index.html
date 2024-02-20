@@ -6,87 +6,45 @@
     <title>SideSeeing Project</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script>
-        function createCityTable(content, elementID) {
-            var htmlTable = '<table class="table is-bordered"><thead><tr><th>Item</th><th>Frequency</th></tr></thead><tbody>';
-
-            for (var chave in content["Frequency"]) {
-                htmlTable += '<tr>';
-                htmlTable += '<td>' + chave + '</td>';
-                htmlTable += '<td>' + content["Frequency"][chave] + '</td>';
-                htmlTable += '</tr>';
-            }
-    
-            htmlTable += '</tr></thead><tbody>';
-    
-            for (var i = 0; i < content.length; i++) {
-                htmlTable += '<tr>';
-                for (var chave in content[i]) {
-                    htmlTable += '<td>' + content[i][chave] + '</td>';
-                }
-                htmlTable += '</tr>';
-            }
-    
-            htmlTable += '</tbody></table>';
-    
-            $(elementID).html(htmlTable);
-        }
-
-        function getAndShowData(url, elementID){
-                $(document).ready(function() {
-                jsonData = jQuery.getJSON(url).done(function(data){
-                    createCityTable(data, elementID);
-                })
-            });
-        }
-
-        function getAndShowMap(url, elementID){
-                $(document).ready(function() {
-                jQuery.get(url).done(function(data){
-                    var iFrame = $(elementID);
-                    $(iFrame).append(iFrame);
-
-                    var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
-                    iFrameDoc.write(data);
-                    iFrameDoc.close();
-                })
-            });
-        }
-
-        getAndShowData("https://storage.googleapis.com/sideseeing/cities.json", "#cities-content");
-
-        getAndShowData("https://storage.googleapis.com/sideseeing/tags-frequency.json", "#tags-content");
-
-        getAndShowMap("https://storage.googleapis.com/sideseeing/map.html", "#map-content")
-    </script>
+    <script src="js/utils.js"></script>
 </head>
 
 <body class="is-family-code" style="height: 100vh;">
-    <nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid lightgrey;">
+    <nav class="navbar is-light is-spaced" style="border-bottom: 1px solid lightgray;" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item">
+          <a class="navbar-item" href="">
             <strong>SideSeeing Project</strong>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarSP">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarSP" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="">Home</a>
-            <a class="navbar-item" href="dataset.html">Dataset</a>
+            <a class="navbar-item" href="">
+              Home
+            </a>
+      
+            <a class="navbar-item" href="dataset.html">
+              Dataset
+            </a>
+          </div>
         </div>
     </nav>
     
     <section class="section">
         <div class="container">
             <div id="home" class="content">
-                <header>
+                <header class="content">
                     <h1>SideSeeing Project</h1>
                 </header>
-
-                <figure>
-                    <img src="img/sidewalks.png">
-                </figure>
-
+            
+                <p><img src="img/sidewalks.png"></p>
+            
                 <div class="tile is-ancestor">
                     <div class="tile is-vertical is-parent">
                         <p>The <strong>SideSeeing Project</strong> aims to develop methods based on Computer Vision and Machine Learning for Urban Informatics applications. Our goal is to devise strategies for obtaining and analyzing data related to urban accessibility. The project is expected to consist of six modules:
@@ -100,9 +58,13 @@
                             <li>Application of artificial intelligence tasks; and</li>
                             <li>Analysis of information for decision-making</li>    
                         </ol>
-                        
-                        <p><img src="img/wearable.jpeg" width="200px" style="margin-right:20px; float:inline-start;">As part of the initial module, an application for a mobile device's operating system</li> is currently in the testing phase and is available <a href="app.html">here</a>. <br/><br/>This application is capable of generating multimodal datasets using video cameras and sensors such as accelerometers, gyroscopes, and magnetometers from mobile phones attached to a low-cost wearable support.
-                        </p>
+
+                        <div>
+                            <img src="img/wearable.jpeg" width="200px" style="margin-right:12px; float:inline-start;border: 1px solid gray;">
+                            <p>As part of the initial module, an application for a mobile device's operating system</li> is currently in the testing phase and is available <a href="app.html">here</a>.</p>
+                            
+                            <p>This application is capable of generating multimodal datasets using video cameras and sensors such as accelerometers, gyroscopes, and magnetometers from mobile phones attached to a low-cost wearable support.</p>
+                        </div>
                     </div>
 
                     <div class="tile is-vertical is-parent">
@@ -118,20 +80,14 @@
         </div>
     </section>
 
-    <section>
+    <section class="section">
         <div class="container">
             <div id="app" class="content">
                 <header class="subtitle">The app MultiSensor Data Collection</header>
-                <div class="columns is-centered is-vcentered">
-                    <div class="column">
-                        <p>MultiSensor Data Collection is a mobile app that seamlessly gathers data from various sensors, including accelerometer, gyroscope, magnetometer, GPS, video camera, and audio, allowing you to create a comprehensive dataset locally and effortlessly transmit it to the cloud for further analysis and storage. The applications' source-code is publicly available <a target="_blank" href="https://github.com/rafaelpezzuto/multi-sensor-data-collection">here</a>.</p>
-                    </div>
-                    <div class="column is-1">
-                        <a target="_blank" href="https://github.com/rafaelpezzuto/multi-sensor-data-collection">
-                            <img src="img/icon.png" width="128px" alt="">
-                        </a>
-                      </div>
-                  </div>
+                <div>
+                    <img src="img/icon.png" width="75px" style="margin-right:12px; float:inline-start;">
+                    <p>MultiSensor Data Collection is a mobile app that seamlessly gathers data from various sensors, including accelerometer, gyroscope, magnetometer, GPS, video camera, and audio, allowing you to create a comprehensive dataset locally and effortlessly transmit it to the cloud for further analysis and storage. The applications' source-code is publicly available <a target="_blank" href="https://github.com/rafaelpezzuto/multi-sensor-data-collection">here</a>.</p>
+                </div>
             </div>
         </div>
     </section>

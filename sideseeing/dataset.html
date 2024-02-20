@@ -6,6 +6,7 @@
     <title>SideSeeing Project</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/utils.js"></script>
     <script>
         function createCityTable(content, elementID) {
             var htmlTable = '<table class="table is-bordered"><thead><tr><th>Item</th><th>Frequency</th></tr></thead><tbody>';
@@ -44,8 +45,6 @@
                 $(document).ready(function() {
                 jQuery.get(url).done(function(data){
                     var iFrame = $(elementID);
-                    $(iFrame).append(iFrame);
-
                     var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
                     iFrameDoc.write(data);
                     iFrameDoc.close();
@@ -62,17 +61,29 @@
 </head>
 
 <body class="is-family-code" style="height: 100vh;">
-    <nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid lightgrey;">
+    <nav class="navbar is-light is-spaced" style="border-bottom: 1px solid lightgray;" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item">
+          <a class="navbar-item" href="">
             <strong>SideSeeing Project</strong>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarSP">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarSP" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="index.html">Home</a>
-            <a class="navbar-item" href="">Dataset</a>
+            <a class="navbar-item" href="index.html">
+              Home
+            </a>
+      
+            <a class="navbar-item" href="">
+              Dataset
+            </a>
+          </div>
         </div>
     </nav>
 
@@ -113,7 +124,7 @@
                     <div class="tile is-parent">
                         <div class="tile is-child">
                             <h3 class="subtitle">Geolocation</h3>
-                            <iframe width="800px" height="800px" id="map-content"></iframe>
+                            <iframe style="border: 1px solid gray;" width="700px" height="700px" id="map-content"></iframe>
                         </div>
                     </div>
                 </div>
