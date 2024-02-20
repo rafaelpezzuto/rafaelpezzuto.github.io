@@ -4,23 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideSeeing Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        function createCityTable(content, elementID) {
+            var htmlTable = '<table class="table is-bordered"><thead><tr><th>Item</th><th>Frequency</th></tr></thead><tbody>';
+
+            for (var chave in content["Frequency"]) {
+                htmlTable += '<tr>';
+                htmlTable += '<td>' + chave + '</td>';
+                htmlTable += '<td>' + content["Frequency"][chave] + '</td>';
+                htmlTable += '</tr>';
+            }
+    
+            htmlTable += '</tr></thead><tbody>';
+    
+            for (var i = 0; i < content.length; i++) {
+                htmlTable += '<tr>';
+                for (var chave in content[i]) {
+                    htmlTable += '<td>' + content[i][chave] + '</td>';
+                }
+                htmlTable += '</tr>';
+            }
+    
+            htmlTable += '</tbody></table>';
+    
+            $(elementID).html(htmlTable);
+        }
+
+        function getAndShowData(url, elementID){
+                $(document).ready(function() {
+                jsonData = jQuery.getJSON(url).done(function(data){
+                    createCityTable(data, elementID);
+                })
+            });
+        }
+
+        function getAndShowMap(url, elementID){
+                $(document).ready(function() {
+                jQuery.get(url).done(function(data){
+                    var iFrame = $(elementID);
+                    $(iFrame).append(iFrame);
+
+                    var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+                    iFrameDoc.write(data);
+                    iFrameDoc.close();
+                })
+            });
+        }
+
+        getAndShowData("https://storage.googleapis.com/sideseeing/cities.json", "#cities-content");
+
+        getAndShowData("https://storage.googleapis.com/sideseeing/tags-frequency.json", "#tags-content");
+
+        getAndShowMap("https://storage.googleapis.com/sideseeing/map.html", "#map-content")
+    </script>
 </head>
-<body>
 
-    <header>
-        <h1>SideSeeing Project</h1>
-    </header>
-
-    <section>
-        <h2>User Guide</h2>
-        <p><a target="_blank" href="https://docs.google.com/document/d/1lKm_0UzR3A3CFQJ5h7oZ958UsI7PUoadMdky01y7wiI/edit?usp=sharing">This document</a> contains instructions for installing the application and collecting data.</p>
-
-        <h2>Sidewalk Taxonomy</h2>
-        <p><a href="https://drive.google.com/file/d/1SzTdgGccSCc1Fu-6F5XJJU7AMklGw-Kj/view?usp=sharing">This CSV file</a> contains a taxonomy representing elements associated with sidewalks.</p>
     </section>
 
-    <footer>
-        <p>&copy; 2024 SideSeeing Project</p>
+    <footer class="footer" style="margin-top: 50px; border-top: 1px solid lightgrey;">
+        <div class="content has-text-centered">
+            <p>
+                SideSeeing Project - 2024<br/>
+                University of São Paulo
+            </p>
+        </div>
     </footer>
 
 </body>
