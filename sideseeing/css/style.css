@@ -16,3 +16,7 @@ html, body {
 .push {
     height: 50px;
 }
+
+.is-display-none {
+    display: none;
+}
