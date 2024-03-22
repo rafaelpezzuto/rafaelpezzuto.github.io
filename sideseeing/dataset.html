@@ -16,7 +16,8 @@
         mapPlaces("https://storage.googleapis.com/sideseeing/coverage/map.html", "#map-content");
         tableAndChartTagsCategories("https://storage.googleapis.com/sideseeing/coverage/tags-frequency.json", "#tags-content", "#categories-content");
         chartCitiesFrequency("https://storage.googleapis.com/sideseeing/coverage/cities.json");
-        tableStats("https://storage.googleapis.com/sideseeing/coverage/hospitals-stats.json", "#stats-content");
+        divStats("https://storage.googleapis.com/sideseeing/coverage/hospitals-stats.json", "#hospitals-stats-content");
+        divStats("https://storage.googleapis.com/sideseeing/coverage/general-stats.json", "#general-stats-content");
     </script>
 
 </head>
@@ -78,19 +79,19 @@
                                     <h3 class="subtitle">Statistics</h3>
                                     <div>
                                         <strong>Data related to Hospitals</strong>
-                                        <ul>
-                                            <li>Number of frames: 67431</li>
-                                            <li>Duration in seconds: 2248</li>
-                                            <li>Number of videos: 18</li>
+                                        <ul id="hospitals-stats-content">
+                                            <li>Number of frames: <span id="hospitals-stats-content-total-frames"></span></li>
+                                            <li>Duration in seconds: <span id="hospitals-stats-content-total-time"></span></li>
+                                            <li>Number of videos: <span id="hospitals-stats-content-total-videos"></span></li>
                                         </ul>
 
                                         <hr/>
                                         
                                         <strong>General data</strong>
-                                        <ul>
-                                            <li>Number of frames: 174833</li>
-                                            <li>Duration in seconds: 5828</li>
-                                            <li>Number of videos: 61</li>
+                                        <ul id="general-stats-content">
+                                            <li>Number of frames: <span id="general-stats-content-total-frames"></span></li>
+                                            <li>Duration in seconds: <span id="general-stats-content-total-time"></span></li>
+                                            <li>Number of videos: <span id="general-stats-content-total-videos"></span></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -24,7 +24,7 @@ $(function() {
     });
 });
 
-function chartCitiesFrequency(url){
+function chartCitiesFrequency(url) {
     $(document).ready(function() {
         jsonData = jQuery.getJSON(url).done(function(data){
             _createCityChart(data);
@@ -32,7 +32,7 @@ function chartCitiesFrequency(url){
     });
 }
 
-function _createCityChart(content){
+function _createCityChart(content) {
     const ctx = document.getElementById('chartCitiesFrequency');
 
     var labels = [];
@@ -74,7 +74,7 @@ function _createCityChart(content){
     });
 }
 
-function tableAndChartTagsCategories(url, tableElementID, chartElementID){
+function tableAndChartTagsCategories(url, tableElementID, chartElementID) {
     $(document).ready(function() {
         jsonData = jQuery.getJSON(url).done(function(data){
             _createTagsTable(data, tableElementID);
@@ -170,8 +170,8 @@ function _createCategoriesChart(content) {
     });
 }
 
-function mapPlaces(url, elementID){
-        $(document).ready(function() {
+function mapPlaces(url, elementID) {
+    $(document).ready(function() {
         jQuery.get(url).done(function(data){
             var iFrame = $(elementID);
             var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
@@ -179,4 +179,19 @@ function mapPlaces(url, elementID){
             iFrameDoc.close();
         })
     });
+}
+
+function divStats(url, tableElementID) {
+    $(document).ready(function() {
+        jsonData = jQuery.getJSON(url).done(function(data){
+            _fillStatsData(data, tableElementID);
+        })
+    });
+}
+
+function _fillStatsData(content, rootElementID) {
+    console.log(content);
+    $(rootElementID + '-total-time').text(content['total_time (s)'].toFixed(0));
+    $(rootElementID + '-total-frames').text(content['total_frames']);
+    $(rootElementID + '-total-videos').text(content['total_videos']);
 }
