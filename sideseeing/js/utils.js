@@ -190,7 +190,6 @@ function divStats(url, tableElementID) {
 }
 
 function _fillStatsData(content, rootElementID) {
-    console.log(content);
     $(rootElementID + '-total-time').text(content['total_time (s)'].toFixed(0));
     $(rootElementID + '-total-frames').text(content['total_frames']);
     $(rootElementID + '-total-videos').text(content['total_videos']);
