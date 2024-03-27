@@ -53,20 +53,76 @@
             <div class="container">    
                 <div id="app" class="content">
                     <header class="subtitle">MultiSensor Data Collection App</header>
-                    <article class="message is-warning">
-                        <div class="message-body">
-                            This section is under construction.
-                        </div>
-                    </article>
                     <div class="columns">
                         <div class="column">
                             <img src="img/icon.png" width="75px" style="margin-right:12px; float:inline-start;">
-                            <p>MultiSensor Data Collection is a mobile app that seamlessly gathers data from various sensors, including accelerometer, gyroscope, magnetometer, GPS, video camera, and audio, allowing you to create a comprehensive dataset locally and effortlessly transmit it to the cloud for further analysis and storage. The application's source-code is publicly available <a target="_blank" href="https://github.com/rafaelpezzuto/multi-sensor-data-collection">here</a>.</p>
+                            <p>
+                                MultiSensor Data Collection is a mobile app that seamlessly gathers data from various sensors, including accelerometer, gyroscope, magnetometer, GPS, video camera, and audio, allowing you to create a comprehensive dataset locally and effortlessly transmit it to the cloud for further analysis and storage. The application's source-code is publicly available <a target="_blank" href="https://github.com/rafaelpezzuto/multi-sensor-data-collection">here</a>.
+                            </p>
+                            <p>
+                                <strong>Installation</strong><p>
+                            <p>
+                                The first thing you need to do is provide us with the email associated with your Google account, which will be added to a list of internal users. As the app is currently in the testing stage, this email is the only means by which you will be able to install it. Check the complete instructions <a href="https://docs.google.com/document/d/1lKm_0UzR3A3CFQJ5h7oZ958UsI7PUoadMdky01y7wiI/edit?usp=sharing">here</a>.
+                            </p>
+                            <p>
+                                <strong>Dataset</strong>
+                            </p>
+                            <p>
+                                The recorded data, located in the Download/MSDC folder on the device, consists of up to seven files, depending on the device's capabilities. The following table describes each of these files.
+                            </p>
+                            <table>
+                                <thead>
+                                    <th>File</th>
+                                    <th>Description</th>
+                                </thead>
+                                <tr>
+                                    <td>consumption.csv</td>
+                                    <td>File containing data related to power consumption</td>
+                                </tr>
+                                <tr>
+                                    <td>gps.csv</td>
+                                    <td>File containing GPS data</td>
+                                </tr>
+                                <tr>
+                                    <td>metadata.json</td>
+                                    <td>File containing metadata.</td>
+                                </tr>
+                                <tr>
+                                    <td>sensors.one.csv</td>
+                                    <td>File containing data from one-axis sensors</td>
+                                </tr>
+                                <tr>
+                                    <td>sensors.three.csv</td>
+                                    <td>File containing data from three-axis sensors</td>
+                                </tr>
+                                <tr>
+                                    <td>sensors.three.uncalibrated.csv</td>
+                                    <td>File containing data from three-axis sensors uncalibrated</td>
+                                </tr>
+                                <tr>
+                                    <td>video.mp4</td>
+                                    <td>MP4 video file</td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="column">
-                            <p><strong>Installation</strong><p>
-                            <p>
-                            The first thing you need to do is provide us with the email associated with your Google account, which will be added to a list of internal users. As the app is currently in the testing stage, this email is the only means by which you will be able to install it. Check the complete instructions <a href="https://docs.google.com/document/d/1lKm_0UzR3A3CFQJ5h7oZ958UsI7PUoadMdky01y7wiI/edit?usp=sharing">here</a>.</p>
+                            <p><strong>Screenshots</strong></p>
+                            <figure>
+                                <img src="img/app-interface/interface-main.png"/>
+                                <figcaption>Main screen</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="img/app-interface/interface-settings.png"/>
+                                <figcaption>Settings screen</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="img/app-interface/interface-recording.png"/>
+                                <figcaption>Main screen while recording data</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="img/app-interface/interface-done.png"/>
+                                <figcaption>Main screen after clicking the "STOP" button</figcaption>
+                            </figure>
                         </div>
                     </div>
                 </div>
